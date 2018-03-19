@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs-extra');
 const cwd = __dirname;
 const Path = require('path');
@@ -239,4 +241,10 @@ function getPromise(id, name) {
             }
         );
     });
+}
+
+
+if (!program.args[0]) {
+    process.stdout.write(program.helpInformation());
+    program.emit('--help');
 }
